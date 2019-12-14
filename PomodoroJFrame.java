@@ -64,7 +64,6 @@ public class PomodoroJFrame extends JFrame{
                                                               rounds--;
                                                               threadSleep();
                                                               PomodoroTimer();
-                                                              // threadSleep();
                                                           }
                                                       }
                                                   });
@@ -82,8 +81,8 @@ public class PomodoroJFrame extends JFrame{
         // Creating the frame (window) that will be our app.
         mainFrame = new JFrame("Pomodoro");
         mainFrame.setSize(600,400);
+        /* We are setting the layour as a grid to avoid using absolute values.*/
         mainFrame.setLayout(new GridLayout(6, 1));
-        // mainFrame.getContentPane().setBackground(new Color(59, 89, 182));
         
         mainFrame.addWindowListener(new WindowAdapter()
         {
@@ -100,9 +99,11 @@ public class PomodoroJFrame extends JFrame{
         subHeaderLabel = new JLabel("3 rounds of 25 minutes, 2 of 5 minutes and 1 of 15 minutes.", JLabel.CENTER);
         sessionLabel = new JLabel(String.valueOf(numberOfSessions), JLabel.CENTER);
         statusLabel = new JLabel("00:00", JLabel.CENTER);
+        // Setting the size, fonts and font size of the timer.
         statusLabel.setSize(350,100);
         statusLabel.setFont(new Font("Serif", Font.BOLD, 28));
-
+        
+        // Creating the panels that will contain the buttons.
         timerButtonPanel = new JPanel();
         sessionPanel = new JPanel();
         controlButtonPanel = new JPanel();
